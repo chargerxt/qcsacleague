@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QC: Sacrifice League - Standings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="QC: Sacrifice League Logo" />
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="teams.html">Teams</a></li>
+      <li><a href="standings.html">Standings</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#rules">Rules</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="standings">
+      <table id="standingsTable">
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Team 1 -->
+          <tr>
+            <td>ChenZo and a BenZo</td>
+            <td>3</td>
+            <td>1</td>
+            <td>9</td>
+          </tr>
+          <!-- Team 2 -->
+          <tr>
+            <td>Gib it to me</td>
+            <td>2</td>
+            <td>2</td>
+            <td>6</td>
+          </tr>
+          <!-- Team 3 -->
+          <tr>
+            <td>Toggle Gang</td>
+            <td>1</td>
+            <td>3</td>
+            <td>3</td>
+          </tr>
+          <!-- Team 4 -->
+          <tr>
+            <td>Pepsi and Wings</td>
+            <td>4</td>
+            <td>0</td>
+            <td>12</td>
+          </tr>
+          <!-- Team 5 -->
+          <tr>
+            <td>Insert Name Here</td>
+            <td>3</td>
+            <td>1</td>
+            <td>9</td>
+          </tr>
+          <!-- Team 6 -->
+          <tr>
+            <td>All Action</td>
+            <td>2</td>
+            <td>2</td>
+            <td>6</td>
+          </tr>
+          <!-- Team 7 -->
+          <tr>
+            <td>Russian Redeye</td>
+            <td>1</td>
+            <td>3</td>
+            <td>3</td>
+          </tr>
+          <!-- Team 8 -->
+          <tr>
+            <td>European Union</td>
+            <td>4</td>
+            <td>0</td>
+            <td>12</td>
+          </tr>
+          <!-- Team 9 -->
+          <tr>
+            <td>The Trench Coats</td>
+            <td>2</td>
+            <td>2</td>
+            <td>6</td>
+          </tr>
+          <!-- Team 10 -->
+          <tr>
+            <td>Boomer Boys</td>
+            <td>3</td>
+            <td>1</td>
+            <td>9</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 QC: Sacrifice League</p>
+  </footer>
+
+  <script src="script.js"></script>
+  
+  <!-- Add JavaScript code to sort table rows -->
+  <script>
+    window.onload = function() {
+      // Get the table and rows
+      const table = document.getElementById("standingsTable");
+      const rows = Array.from(table.rows).slice(1); // Exclude header row
+
+      // Sort the rows based on Points (column index 3)
+      rows.sort((a, b) => {
+        const pointsA = parseInt(a.cells[3].innerText);
+        const pointsB = parseInt(b.cells[3].innerText);
+        return pointsB - pointsA; // Descending order
+      });
+
+      // Re-insert sorted rows into the table body
+      const tbody = table.querySelector('tbody');
+      rows.forEach(row => tbody.appendChild(row));
+    };
+  </script>
+</body>
+</html>
